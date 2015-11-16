@@ -15,7 +15,7 @@ export default class TodoInput extends React.Component {
   }
   render() {
     return (
-      <input type="text" value={Store.get().inputText} onChange={this.handleChange}
+      <input id="new_todo_input" type="text" value={Store.get().inputText} onChange={this.handleChange}
          onKeyDown={this.handleNewTodoKeyDown}>
       </input>
 
