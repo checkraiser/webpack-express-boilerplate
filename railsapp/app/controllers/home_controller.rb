@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-  	@todos = Todo.pluck(:id, :content)
+  	@todos = Todo.all
   end
 end
