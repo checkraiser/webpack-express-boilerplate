@@ -23,11 +23,17 @@
     "start": "babel-node server",
     "build": "rimraf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint .",
-    "jscs": "jscs ."
+    "jscs": "jscs .",
+    "transfer": "rm -f railsapp/vendor/assets/javascripts/*.js && cp dist/*.js railsapp/vendor/assets/javascripts && cp dist/*.css railsapp/vendor/assets/stylesheets",
+    "deploy": "npm run build && npm run transfer"
   },
   "dependencies": {
+    "freezer-js": "^0.9.4",
+    "history": "^1.13.1",
     "react": "0.14.0-rc1 ",
-    "react-dom": "0.14.0-rc1"
+    "react-dom": "0.14.0-rc1",
+    "react-router": "^1.0.0",
+    "reactive-router": "^0.4.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",

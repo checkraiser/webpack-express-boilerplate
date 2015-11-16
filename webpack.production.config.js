@@ -7,12 +7,12 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
 
 module.exports = {
-  entry: [
-    path.join(__dirname, 'app/main.js')
-  ],
+  entry: {
+    home: path.join(__dirname, 'app/home.js')
+  },
   output: {
     path: path.join(__dirname, '/dist/'),
-    filename: '[name]-[hash].min.js'
+    filename: '[name].min.js'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -21,7 +21,7 @@ module.exports = {
       inject: 'body',
       filename: 'index.html'
     }),
-    new ExtractTextPlugin('[name]-[hash].min.css'),
+    new ExtractTextPlugin('[name].min.css'),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
