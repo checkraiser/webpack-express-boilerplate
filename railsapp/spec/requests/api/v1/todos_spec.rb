@@ -18,4 +18,11 @@ describe "Todos API" do
     # check to make sure the right amount of messages are returned
     expect(json.length).to eq(1)
   end
+
+  it 'create new todo' do
+    post '/api/v1/todos', :content => 'Hello World'
+    json = JSON.parse(response.body)
+    expect(response).to be_success
+    expect(json['content'] == 'Hello World')
+  end
 end
