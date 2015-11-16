@@ -1,3 +1,3 @@
 class Todo < ActiveRecord::Base
-  include AsJson
+  include TodoConcern::Validatable
 end
