@@ -14,7 +14,7 @@ module API
         end
         post do
           todo = Todo.create(content: params[:content])
-          todo
+          Todo.all
         end
       end
     end

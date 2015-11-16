@@ -28,28 +28,14 @@ module API
 
         # HTTP header based authentication
         before do
-          #error!('Unauthorized', 401) unless headers['Authorization'] == "some token"
-          authenticate!
+          error!('Unauthorized', 401) unless ApiKey.first.access_token == params['access_token']
         end
-        helpers do
-          def warden
-            env['warden']
-          end
-          def authenticate!
-            return true if warden.authenticated?
-            error!('Unauthorized. Invalid or expired token.', 401) unless current_user
-          end
 
-          def current_user
-            # find token. Check if valid.
-            token = ApiKey.where(access_token: params[:token]).first
-            if token
-              @current_user = User.find(token.user_id)
-            else
-              false
-            end
+        helpers do
+          def default_serializer_options
+            {root: false}
           end
-      end
+        end
       end
     end
   end
