@@ -6,16 +6,13 @@ import TodoInput from './TodoInput';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {todos: Store.get().todos};
   }
   componentDidMount(){
-    let me = this;
-    Store.on('update', function(){
-      me.forceUpdate();
-    });
+    var self = this;
+    Store.on('update', () => self.forceUpdate());
   }
   render() {
-    let todosList = this.state.todos.map((x) => <li key={x.id}>{x.content}</li>)
+    let todosList = Store.get().todos.map((x) => <li key={x.id}>{x.content}</li>)
     return (
       <div>
       <h2>Todos</h2>

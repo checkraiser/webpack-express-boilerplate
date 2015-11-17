@@ -25,13 +25,16 @@
     "eslint": "eslint .",
     "jscs": "jscs .",
     "transfer": "rm -f railsapp/vendor/assets/javascripts/*.js && cp dist/*.js railsapp/vendor/assets/javascripts && cp dist/*.css railsapp/vendor/assets/stylesheets",
-    "deploy": "npm run build && npm run transfer"
+    "deploy": "npm run build && npm run transfer",
+    "deploy:watch": "watch 'npm run deploy' ./app"
   },
   "dependencies": {
     "exports-loader": "^0.6.2",
     "freezer-js": "^0.9.4",
     "history": "^1.13.1",
     "imports-loader": "^0.6.5",
+    "notie-js": "^2.0.1",
+    "nprogress": "^0.2.0",
     "react": "0.14.0-rc1 ",
     "react-dom": "0.14.0-rc1",
     "react-router": "^1.0.0",
