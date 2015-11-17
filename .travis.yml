@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+ - "2.1.5"
+
+addons:
+  postgresql: "9.3"
+
+services:
+  - postgresql
+# uncomment this line if your project needs to run something other than `rake`:
+before_script:
+  - cd railsapp
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - bundle exec rake db:test:prepare
+script: bin/cucumber
