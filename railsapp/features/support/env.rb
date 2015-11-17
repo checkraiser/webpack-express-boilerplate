@@ -56,11 +56,12 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
-#Capybara.register_driver :selenium do |app|
-#  require 'selenium/webdriver'
-#  Capybara::Selenium::Driver.new(app, :browser => :chrome)
-#end
-#Capybara.default_driver = :selenium
+Capybara.register_driver :selenium do |app|
+  require 'selenium/webdriver'
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+Capybara.default_driver = :selenium
+=begin
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
 
@@ -68,3 +69,4 @@ options = {js_errors: false}
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, options)
 end
+=end

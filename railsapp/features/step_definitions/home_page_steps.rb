@@ -1,3 +1,6 @@
+Given(/^There is an ApiKey$/) do
+  ApiKey.create!
+end
 Given(/^There is already a user$/) do
   @user = FactoryGirl.create(:user)
 end

@@ -23,5 +23,6 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - bundle exec rake db:test:prepare
 script:
-  - bin/rspec
-  - bin/cucumber
+  - bin/rspec spec/models
+  - bin/rspec spec/requests
+  #- bin/cucumber

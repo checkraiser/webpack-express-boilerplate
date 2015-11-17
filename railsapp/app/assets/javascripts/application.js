@@ -10,8 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require es5-shim
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require es5-shim
 //= require nprogress

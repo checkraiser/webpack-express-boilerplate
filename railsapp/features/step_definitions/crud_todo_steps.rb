@@ -1,4 +1,5 @@
 Given(/^I login successfully$/) do
+  step "There is an ApiKey"
   step  "There is already a user"
   step  "A todo item"
   step "I'm not signed in"
@@ -11,8 +12,7 @@ When(/^I fill in the textbox 'Hello World'$/) do
 end
 When(/^I click 'Add' button$/) do
   click_button 'Add'
-  sleep 3
 end
 Then(/^I could see 'Hello World'$/) do
-  page.should have_content 'Hello World'
+  expect(page).to have_content 'Hello World'
 end
