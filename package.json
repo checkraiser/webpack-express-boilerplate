@@ -25,7 +25,7 @@
     "eslint": "eslint .",
     "jscs": "jscs .",
     "transfer": "rm -f railsapp/vendor/assets/javascripts/*.js && cp dist/*.js railsapp/vendor/assets/javascripts && cp dist/*.css railsapp/vendor/assets/stylesheets",
-    "deploy": "npm run build && npm run transfer",
+    "deploy": "npm run build && npm run transfer && cd railsapp && bin/rspec spec/models && bin/rspec spec/requests && bin/cucumber && open coverage/index.html",
     "deploy:watch": "watch 'npm run deploy' ./app"
   },
   "dependencies": {

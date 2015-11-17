@@ -24,11 +24,12 @@ export default class TodoInput extends React.Component {
   }
   render() {
     return (
-      <form>
+      <div>
+        <label>New todo</label>
         <input id="new_todo_input" type="text" value={Store.get().inputText} onChange={this.handleChange} onKeyDown={this.handleNewTodoKeyDown}>
         </input>
         <button id="add" onClick={this.onClickAdd}>Add</button>
-      </form>
+      </div>
     );
   }
 }

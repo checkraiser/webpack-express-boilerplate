@@ -1,26 +1,32 @@
 language: ruby
-bundler_args: --without development --deployment --jobs=3 --retry=3
+bundler_args: "--without development --deployment --jobs=3 --retry=3"
 cache: bundler
 rvm:
- - "2.1.5"
-
+- 2.1.5
 addons:
-  postgresql: "9.3"
-
+  postgresql: '9.3'
 services:
-  - postgresql
-# uncomment this line if your project needs to run something other than `rake`:
+- postgresql
 before_install:
-  - cd railsapp
+- cd railsapp
 before_script:
-  - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-  - tar -xjf phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-  - sudo rm -rf /usr/local/phantomjs/bin/phantomjs
-  - sudo mv phantomjs /usr/local/phantomjs/bin/phantomjs
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - bundle exec rake db:test:prepare
+- wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
+- tar -xjf phantomjs-2.0.0-ubuntu-12.04.tar.bz2
+- sudo rm -rf /usr/local/phantomjs/bin/phantomjs
+- sudo mv phantomjs /usr/local/phantomjs/bin/phantomjs
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+- bundle exec rake db:test:prepare
 script:
-  - bin/rspec spec/models
-  - bin/rspec spec/requests
-  #- bin/cucumber
+- bin/rspec spec/models
+- bin/rspec spec/requests
+before_deploy:
+  - cd railsapp
+  - bin/rake assets:precompile
+deploy:
+  provider: heroku
+  app: revskill-todo
+  run:
+    - "bin/rake db:migrate"
+  api_key:
+    secure: CYWLwdR4dmWfiofz1Lq6Vx/OzYyIraMhQOafGLTTrJq/Bv65zVoNU7GO94+N46ZJs7dz9/4scwWPhN0vem58fgWUI1fiZ/4dVSNZhvhS4TkW4v3BmT1ga3XTdsjmJeIQ5YhsrdzM0hyF7Tq9kEybng+CKvfLZxZJ2VZF6RNO8Ao2dDIjs4tX1JGzDHL53yX/4joU+8vNCvm05CnRDxmUvIJOoy6t/r4jdXR6VeSwuZ2qI6Y0UhXV2651arWSpsfIuqDTguCsyRKKGA/NlxUgnzztQa/2TWKiJiyuQruGTPwBkhWOKMUdZ66E4q2GelgXGphLO+qfWHKzfJCl8mFLBzaqY0gaiof5qLZrvgvy1GXMyuWg1yVkepbcCMX5NcyTlnl5PuPzozkcX5yjp9cAwvAFAAUJUcKGX/VHFS38hJq/QcnGgGqHT6DR5iSWbmdS/XM4Pr2ir859pbDAxQAgam4SK0KGfpuEwxt9sOZVk7D9W3Qi5fFDcGI4i4mJ/AJaZ/vMxwbgzbu7Z1ho9vJ54ME+0lYcdYe7b6twV4ZUnxqzK0I8V0Be0MMvtNr7P2D9wZ7TgjE/X+xfOlBnJbR4PM2LQnHKE5+FS2c+vik5Q8ERhbDRSnXygH2Jp4LKvglfkfvbe86RU5htETxzdXV93iwgGeik3oF7RBhWlYIXMOc=

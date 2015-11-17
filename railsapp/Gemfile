@@ -60,3 +60,4 @@ group :test do
   gem 'selenium-webdriver'
   gem 'poltergeist'
 end
+gem 'simplecov', :require => false, :group => :test
