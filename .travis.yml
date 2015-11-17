@@ -17,9 +17,8 @@ before_script:
   - cd railsapp
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
-install:
-  - bundle install
   - bundle exec rake db:test:prepare
+install: true
 script:
   - bin/rspec
   - bin/cucumber
