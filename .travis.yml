@@ -21,7 +21,6 @@ script:
 - bin/rspec spec/models
 - bin/rspec spec/requests
 before_deploy:
-  - cd railsapp
   - bin/rake assets:precompile
 deploy:
   provider: heroku
