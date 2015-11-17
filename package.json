@@ -24,7 +24,7 @@
     "build": "rimraf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint .",
     "jscs": "jscs .",
-    "transfer": "rm -f railsapp/vendor/assets/javascripts/*.js && cp dist/*.js railsapp/vendor/assets/javascripts && cp dist/*.css railsapp/vendor/assets/stylesheets",
+    "transfer": "rm -f railsapp/public/assets/*.min.js && cp dist/*.min.js railsapp/public/assets/ && cp dist/*.min.css railsapp/public/assets/",
     "deploy": "npm run build && npm run transfer && cd railsapp && bin/rspec spec/models && bin/rspec spec/requests && bin/cucumber && open coverage/index.html",
     "deploy:watch": "watch 'npm run deploy' ./app"
   },
