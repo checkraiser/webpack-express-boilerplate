@@ -20,10 +20,6 @@ before_script:
 script:
 - bin/rspec spec/models
 - bin/rspec spec/requests
-before_deploy:
-  - bin/rake assets:precompile
-  - git add -A .
-  - git commit -m "Deploy to heroku"
 deploy:
   provider: heroku
   app: revskill-todo
