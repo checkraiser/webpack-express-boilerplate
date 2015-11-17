@@ -11,7 +11,6 @@ When(/^I fill in the textbox 'Hello World'$/) do
 end
 When(/^I click 'Add' button$/) do
   click_button 'Add'
-  save_and_open_page
 end
 Then(/^I could see 'Hello World'$/) do
   page.should have_content 'Hello World'
