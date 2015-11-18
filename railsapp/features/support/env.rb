@@ -58,7 +58,7 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 
 Capybara.register_driver :selenium do |app|
   require 'selenium/webdriver'
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  Capybara::Selenium::Driver.new(app, :browser => :firefox)
 end
 Capybara.default_driver = :selenium
 =begin
