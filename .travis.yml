@@ -20,6 +20,7 @@ before_script:
 script:
 - bin/rspec spec/models
 - bin/rspec spec/requests
+- bin/cucumber
 deploy:
   provider: heroku
   app: revskill-todo
