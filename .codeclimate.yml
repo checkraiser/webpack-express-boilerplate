@@ -1,0 +1,11 @@
+languages:
+   Ruby: true
+   JavaScript: true
+exclude_paths:
+- "dist/*"
+- "railsapp/features"
+- "railsapp/public"
+- "railsapp/spec"
+- "railsapp/test"
+- "railsapp/tmp"
+- "railsapp/vendor"
