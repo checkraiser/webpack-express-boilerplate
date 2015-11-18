@@ -4,6 +4,9 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 require "codeclimate-test-reporter"
+CodeClimate::TestReporter.configure do |config|
+  config.git_dir = `git rev-parse --show-toplevel`.strip
+end
 CodeClimate::TestReporter.start
 require 'simplecov'
 require 'cucumber/rails'
