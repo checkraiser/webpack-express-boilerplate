@@ -1,7 +1,8 @@
 # webpack-express-boilerplate
 
 ![TravisCI](https://travis-ci.org/checkraiser/webpack-express-boilerplate.svg?branch=master)
-
+[![Code Climate](https://codeclimate.com/repos/564c9ccf69568019760013e1/badges/3ca0a8406e17e443d93d/gpa.svg)](https://codeclimate.com/repos/564c9ccf69568019760013e1/feed)
+[![Test Coverage](https://codeclimate.com/repos/564c9ccf69568019760013e1/badges/3ca0a8406e17e443d93d/coverage.svg)](https://codeclimate.com/repos/564c9ccf69568019760013e1/coverage)
 A boilerplate for running a Webpack workflow in Node express
 
 Please read the following article: [The ultimate Webpack setup](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup) to know more about this boilerplate.
