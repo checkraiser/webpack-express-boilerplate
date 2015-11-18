@@ -25,3 +25,4 @@ exclude_paths:
 - railsapp/test
 - railsapp/tmp
 - railsapp/vendor
+- railsapp/app/assets
