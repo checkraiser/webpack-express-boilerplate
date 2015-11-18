@@ -3,8 +3,8 @@ if Rails.env == 'development'
 
   # initialization is skipped so trigger it
   Rack::MiniProfilerRails.initialize!(Rails.application)
+  Rack::MiniProfiler.config.disable_caching = false #
 end
-Rack::MiniProfiler.config.disable_caching = false # defaults to true
 if Rails.env.production?
   uri = URI.parse(ENV["REDIS_URL"])
   Rack::MiniProfiler.config.storage_options = { :host => uri.host, :port => uri.port, :password => uri.password }
