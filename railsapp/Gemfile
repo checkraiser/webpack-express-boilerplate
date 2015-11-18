@@ -63,3 +63,4 @@ end
 gem 'simplecov', :require => false, :group => :test
 gem 'rack-mini-profiler', require: false
 gem 'flamegraph'
+gem "codeclimate-test-reporter", group: :test, require: nil

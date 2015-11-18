@@ -6,6 +6,8 @@ rvm:
 addons:
   postgresql: '9.3'
   firefox: "42.0"
+  code_climate:
+    repo_token: de84e8b77c35db01c6029d1f6944deab93bb8bad651507be8452a71a4499b704
 services:
 - postgresql
 before_install:
