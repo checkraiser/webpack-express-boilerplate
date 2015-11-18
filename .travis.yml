@@ -17,6 +17,8 @@ before_script:
 - cp config/database.yml.travis config/database.yml
 - psql -c 'create database travis_ci_test;' -U postgres
 - bundle exec rake db:test:prepare
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 script:
 - bin/rspec spec/models
 - bin/rspec spec/requests
