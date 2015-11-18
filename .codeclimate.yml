@@ -1,11 +1,27 @@
-languages:
-   Ruby: true
-   JavaScript: true
+---
+engines:
+  csslint:
+    enabled: true
+  coffeelint:
+    enabled: true
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+ratings:
+  paths:
+  - "**.css"
+  - "**.coffee"
+  - "**.js"
+  - "**.jsx"
+  - "**.rb"
 exclude_paths:
-- "dist/*"
-- "railsapp/features"
-- "railsapp/public"
-- "railsapp/spec"
-- "railsapp/test"
-- "railsapp/tmp"
-- "railsapp/vendor"
+- dist/*
+- railsapp/features
+- railsapp/public
+- railsapp/spec
+- railsapp/test
+- railsapp/tmp
+- railsapp/vendor
