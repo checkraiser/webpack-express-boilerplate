@@ -5,6 +5,7 @@ rvm:
 - 2.1.5
 addons:
   postgresql: '9.3'
+  firefox: "42.0"
 services:
 - postgresql
 before_install:
